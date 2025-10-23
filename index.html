@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé Complet de Bactériologie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --purple: #9b59b6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            color: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .definition {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .example {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .concept-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .concept-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .icon-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .icon-title i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .tab-container {
+            margin: 2rem 0;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .tab.active {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question:last-child {
+            border-bottom: none;
+        }
+        
+        .options {
+            margin-top: 1rem;
+        }
+        
+        .option {
+            display: block;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: var(--light);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .option:hover {
+            background: #dfe6e9;
+        }
+        
+        .option.selected {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .option.correct {
+            background: var(--success);
+            color: white;
+        }
+        
+        .option.incorrect {
+            background: var(--accent);
+            color: white;
+        }
+        
+        button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .result {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .result.success {
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--success);
+            display: block;
+        }
+        
+        .result.fail {
+            background: rgba(231, 76, 60, 0.2);
+            color: var(--accent);
+            display: block;
+        }
+        
+        .writing-test {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .writing-question {
+            margin-bottom: 2rem;
+        }
+        
+        .writing-question h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .writing-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--purple));
+            color: white;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: var(--dark);
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        /* Modal pour les images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 2%;
+            border-radius: 10px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #bbb;
+        }
+        
+        .keyword-feedback {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .keyword-feedback.correct {
+            color: var(--success);
+        }
+        
+        .keyword-feedback.incorrect {
+            color: var(--accent);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #e9f7fe;
+        }
+        
+        .growth-curve {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        
+        .curve-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .curve-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .phase-description {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .culture-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
+        
+        .culture-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .infection-image {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .infection-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .image-cell {
+            text-align: center;
+        }
+        
+        .answer-key {
+            display: none;
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin-top: 0.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-buttons button {
+                width: 100%;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                max-height: 80%;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+            
+            .culture-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .infection-image {
+                max-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal pour afficher les images en grand -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-microscope"></i> Résumé Complet de Bactériologie</h1>
+            <p>Cours de Microbiologie</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-info-circle"></i>
+                <h2>Introduction à la Microbiologie</h2>
+            </div>
+            
+            <div class="image-container">
+                <img src="micro.PNG" alt="Microorganismes" class="concept-image" data-src="micro.PNG">
+            </div>
+
+            <div class="image-container">
+                <img src="b.PNG" alt="Microorganismes" class="concept-image" data-src="b.PNG">
+            </div>
+            
+            <div class="definition">
+                <p><strong>Microorganisme</strong> : Tout organisme microscopique (bactéries, champignons, protozoaires, algues, virus).</p>
+            </div>
+            <div class="definition">
+                <p><strong>Microbiologie</strong> : Science qui étudie les microorganismes.</p>
+            </div>
+            <div class="definition">
+                <p><strong>Microbiologie médicale</strong> : Étude des microorganismes pathogènes pour l'Homme.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-bacteria"></i>
+                <h2>Bactériologie Médicale</h2>
+            </div>
+            
+            <div class="image-container">
+                <img src="Bactéries.PNG" alt="Bactéries" class="concept-image" data-src="Bactéries.PNG">
+            </div>
+            <div class="image-container">
+                <img src="t.PNG" alt="Bactéries" class="concept-image" data-src="t.PNG">
+            </div>
+            
+            <div class="definition">
+                <p><strong>Bactéries</strong> : Microorganismes procaryotes, unicellulaires, ubiquitaires dont plusieurs peuvent être pathogènes pour l'Homme.</p>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shapes"></i>
+                    </div>
+                    <h4>Morphologie</h4>
+                    <p>Observation au microscope après coloration pour déterminer forme et arrangement des bactéries.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h4>Structure</h4>
+                    <p>Composants de la cellule bactérienne et leurs fonctions spécifiques.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Croissance</h4>
+                    <p>Multiplication par fission binaire (scissiparité) : une cellule donne deux cellules filles identiques.</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>Besoins nutritifs des bactéries</h3>
+                <ul>
+                    <li><strong>Eau</strong> : Principal composant de la cellule</li>
+                    <li><strong>Carbone (C)</strong> : Principal élément constitutif</li>
+                    <li><strong>Azote (N)</strong> : Composition des protéines</li>
+                    <li><strong>Éléments minéraux</strong> : Phosphore, Soufre, Potassium, Sodium, Magnésium, Chlore...</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h3>Besoins énergétiques</h3>
+                <ul>
+                    <li>Les bactéries se nourrissent de <strong>matière organique</strong> : Sucres, amidon, cellulose, protéines, matières grasses...</li>
+                    <li>Elles produisent des <strong>enzymes</strong> pour dégrader les macromolécules en molécules simples</li>
+                    <li>L'<strong>identification enzymatique</strong> permet de classer les bactéries selon les enzymes qu'elles produisent</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-seedling"></i>
+                <h2>Croissance Bactérienne et Milieux de Culture</h2>
+            </div>
+            
+            <div class="growth-curve">
+                <img src="c.PNG" alt="Courbe de croissance bactérienne" class="curve-image" data-src="c.PNG">
+                <div class="phase-description">
+                    <p><strong>Courbe de croissance bactérienne</strong> : L'allure est la même pour toutes les bactéries en culture dans un milieu fermé</p>
+                </div>
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-pause-circle"></i>
+                    </div>
+                    <h4>Phase de latence</h4>
+                    <p>Adaptation des bactéries au milieu</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Phase de croissance</h4>
+                    <p>Les bactéries se divisent sans arrêt. Le taux de croissance est maximal et constant</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <h4>Phase stationnaire</h4>
+                    <p>Arrêt de la croissance car présence de déchets toxiques et épuisement du milieu nutritif</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <h4>Phase de déclin</h4>
+                    <p>Les bactéries ne se divisent plus, elles meurent par lyse cellulaire</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>Milieux de culture</h3>
+                <ul>
+                    <li>Milieux mis au point et commercialisés pour l'<strong>identification</strong> et l'<strong>isolement</strong> des bactéries</li>
+                    <li>Doivent apporter à la bactérie tous les <strong>nutriments nécessaires</strong> à son développement à des concentrations optimales</li>
+                    <li>On distingue :
+                        <ul>
+                            <li>Les milieux <strong>solides</strong></li>
+                            <li>Les milieux <strong>liquides</strong> (ou bouillons)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- DEUX IMAGES POUR LES MILIEUX DE CULTURE -->
+            <div class="culture-images">
+                <img src="sol.JPG" alt="Milieu de culture solide" class="culture-image" data-src="sol.JPG">
+                <img src="liq.JPEG" alt="Milieu de culture liquide" class="culture-image" data-src="liq.JPEG">
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-temperature-high"></i>
+                <h2>Facteurs environnementaux</h2>
+            </div>
+            
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab active" data-tab="temperature">Température</button>
+                    <button class="tab" data-tab="oxygene">Oxygène</button>
+                    <button class="tab" data-tab="ph">pH</button>
+                </div>
+                
+                <div class="tab-content active" id="temperature">
+                    <div class="image-container">
+                        <img src="Classification.JPG" alt="Classification des bactéries par température" class="concept-image" data-src="Classification.JPG">
+                    </div>
+                    
+                    <h3>Classification selon la température</h3>
+                    <div class="example">
+                        <p><strong>Mésophiles</strong> : T° de croissance entre 20° et 40°C (bactéries pathogènes de l'Homme à 37°C)</p>
+                        <p>Exemple : <em>E. coli</em></p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Thermophiles</strong> : T° de croissance entre 45°C et 70°C</p>
+                        <p>Exemple : <em>Bacillus</em> (sources thermales)</p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Psychrophiles</strong> : T° de croissance &lt; 20°C avec optimum à 15°C</p>
+                        <p>Exemple : <em>Pseudomonas</em> (aliments, glaciers)</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="oxygene">
+                    <div class="image-container">
+                        <img src="oo.PNG" alt="Besoins en oxygène des bactéries" class="concept-image" data-src="oo.PNG">
+                    </div>
+                    
+                    <h3>Classification selon l'oxygène</h3>
+                    <div class="example">
+                        <p><strong>Aéro-anaérobies facultatives</strong> : Se développent avec ou sans oxygène</p>
+                        <p>Exemple : Entérobactéries</p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Aérobies strictes</strong> : Ne se développent qu'en présence d'oxygène</p>
+                        <p>Exemple : <em>Pseudomonas</em></p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Micro-aérophiles</strong> : Se développent avec de petites quantités d'oxygène</p>
+                        <p>Exemple : <em>Campylobacter</em></p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Anaérobies strictes</strong> : Se développent en absence d'oxygène</p>
+                        <p>Exemple : <em>Clostridium</em></p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="ph">
+                    <div class="image-container">
+                        <img src="ph.JPG" alt="Bactéries et pH" class="concept-image" data-src="ph.JPG">
+                    </div>
+                    
+                    <h3>Classification selon le pH</h3>
+                    <div class="example">
+                        <p><strong>Neutrophiles</strong> : pH neutre (7 à 7.5)</p>
+                        <p>Exemple : <em>E. coli</em></p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Acidophiles</strong> : pH &lt; 7</p>
+                        <p>Exemple : <em>Lactobacillus</em></p>
+                    </div>
+                    <div class="example">
+                        <p><strong>Alcalophiles</strong> : pH &gt; 7</p>
+                        <p>Exemple : <em>Vibrio cholerae</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-people-arrows"></i>
+                <h2>Types de bactéries selon leur relation avec l'hôte</h2>
+            </div>
+            
+            <div class="image-container">
+                <img src="Types.PNG" alt="Relation hôte-bactérie" class="concept-image" data-src="Types.PNG">
+            </div>
+            
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Saprophytes</h4>
+                    <p>Bactéries vivant dans l'environnement (eau, sol, végétaux)</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4>Commensales</h4>
+                    <p>Flore résidente du corps humain (<b>E. coli</b> flore intestinale, <b>staphylocoques commensaux</b> flore cutanée)</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h4>Pathogènes opportunistes</h4>
+                    <p>Deviennent pathogènes dans certaines conditions (baisse immunitaire, <b>E. coli</b> responsables d’<b>infections urinaires</b>, <b>Staphylococcus epidermis</b> responsable d’<b>abcès</b>)</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-skull-crossbones"></i>
+                    </div>
+                    <h4>Pathogènes strictes</h4>
+                    <p>Provoquent des maladies spécifiques chez l'Homme sain</p>
+                </div>
+            </div>
+            
+            <div class="example">
+                <p><b>Mycobacterium tuberculosis</b> responsable de la <b>tuberculose</b>, <b>Salmonella typhi</b> responsable de la <b>fièvre typhoïde</b> ….</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-eye"></i>
+                <h2>Bactéries et Infections Oculaires</h2>
+            </div>
+            
+            <div class="image-container">
+                <img src="inf.JPG" alt="Infections oculaires" class="concept-image" data-src="inf.JPG">
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Infection</th>
+                            <th>Bactérie</th>
+                            <th>Mode de transmission</th>
+                            <th>Symptômes</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Orgelet</strong><br>Infection <b>au niveau de la base d'un cil</b></td>
+                            <td><b><u>Staphylocoques</u></b></td>
+                            <td>Par le <b>toucher ou le frottement des yeux</b></td>
+                            <td>Le <b>bord de la paupière</b> au niveau de l'infection enfle et rougit, et <b>une petite bosse pouvant être douloureuse apparaît</b></td>
+                            <td class="image-cell">
+                                <img src="org.PNG" alt="Orgelet" class="infection-image" data-src="org.PNG">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conjonctivite bactérienne</strong><br><u>Inflammation</u> de la <b>conjonctive</b></td>
+                            <td><b>Streptocoques</b> et <u><b>Staphylocoques</b></u></td>
+                            <td>Par <b>les mains ou des objets contaminés</b>: serviettes, oreillers…</td>
+                            <td>Démangeaisons, <B>rougeurs</B>, sensations de <B>picotements</B> (grains de sable), écoulement pouvant être purulent</td>
+                            <td class="image-cell">
+                                <img src="conj.jpeg" alt="Conjonctivite bactérienne" class="infection-image" data-src="conj.jpeg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kératite infectieuse</strong><br><u>Inflammation</u> de la <b>cornée</b></td>
+                            <td><b><u>Staphylocoques</u></b>, <b>Pseudomonas</b></td>
+                            <td>Port de <b>lentilles de contact</b> (manque d'hygiène dans la manipulation et l'entretien des lentilles)</td>
+                            <td><B>Rougeur et douleur</B> au niveau de l'œil, baisse de la vision et <B>photophobie</B></td>
+                            <td class="image-cell">
+                                <img src="kerat.PNG" alt="Kératite infectieuse" class="infection-image" data-src="kerat.PNG">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="icon-title">
+                <i class="fas fa-pills"></i>
+                <h2>Traitement des Infections Bactériennes : Les Antibiotiques</h2>
+            </div>
+            
+            <div class="image-container">
+                <img src="Antibiotiques.JPG" alt="Antibiotiques" class="concept-image" data-src="Antibiotiques.JPG">
+            </div>
+            
+            <div class="definition">
+                <p><strong>Antibiotiques</strong> : Médicaments utilisés pour traiter les infections bactériennes, ils sont inactifs contre les infections virales.</p>
+            </div>
+            
+            <div class="definition">
+                <p><strong>Spectre d'activité</strong> : Ensemble des espèces bactériennes sensibles à un antibiotique donné.</p>
+            </div>
+            
+            <div class="highlight">
+                <h3>Antibiogramme</h3>
+                <p>Technique de laboratoire permettant :</p>
+                <ul>
+                    <li>D'étudier la <strong>sensibilité</strong> d'une souche bactérienne vis-à-vis de plusieurs antibiotiques</li>
+                    <li>De déterminer la <strong>concentration minimale inhibitrice (CMI)</strong> d'un (ou des) antibiotique(s) pour une souche bactérienne</li>
+                </ul>
+            </div>
+            
+            <div class="highlight">
+                <h3>Conditions d'utilisation des antibiotiques</h3>
+                <ul>
+                    <li>S'assurer que l'infection est d'<b>origine bactérienne</b></li>
+                    <li><b>Respecter</b> les <b>doses et la durée</b> du traitement</li>
+                    <li>Faire attention aux <b>allergies</b></li>
+                    <li>Tenir compte de l'état de l'organisme</li>
+                    <li>Choisir un <b>antibiotique à spectre étroit</b></li>
+                    <li>Utiliser l'<b>antibiotique</b> à une <b>dose supérieure à la CMI</b></li>
+                </ul>
+            </div>
+            
+            <div class="definition">
+                <p><strong>Résistance aux antibiotiques</strong> : Une bactérie est résistante lorsque son développement n'est pas perturbé par l'antibiotique.</p>
+            </div>
+            
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab active" data-tab="resistance-naturelle">Résistance naturelle</button>
+                    <button class="tab" data-tab="resistance-acquise">Résistance acquise</button>
+                    <button class="tab" data-tab="multiresistance">Multirésistance</button>
+                </div>
+                
+                <div class="tab-content active" id="resistance-naturelle">
+                    <p>Toutes les souches d'une espèce bactérienne sont <B>naturellement résistantes à un antibiotique donné</B>.</p>
+                    <p>Cette résistance est <B>portée par les gènes du chromosome</B> bactérien.</p>
+                    <p>Exemple : <B>Résistance de <em>Pseudomonas aeruginosa</em> à la Kanamycine</B>.</p>
+                    <p>Cette résistance <B> est stable et durable</B>.</p>
+                </div>
+                
+                <div class="tab-content" id="resistance-acquise">
+                    <p>Des souches bactériennes <b>normalement sensibles deviennent résistantes à un antibiotique</b>.</p>
+                    <p>Cette résistance est <b>transmise d'une bactérie à une autre par les plasmides</B>.</p>
+                    <p>Cette résistance <b>n'est pas stable, elle est variable et transitoire</b>.</p>
+                </div>
+                
+                <div class="tab-content" id="multiresistance">
+                    <p><strong>Bactéries multirésistantes (BMR)</strong> : <u>Bactéries résistantes à plusieurs antibiotiques</u>.</p>
+                    <p>Les BMR ne sont pas plus virulentes mais <b>provoquent des infections plus difficiles à traiter</b>.</p>
+                    <p>Les BMR sont en augmentation constante.</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <h3>Causes de l'émergence des résistances</h3>
+                <ul>
+                    <li><b>Surconsommation</b> des antibiotiques (automédication)</li>
+                    <li>Prescription trop fréquente <b>d'antibiotiques à large spectre</b></li>
+                    <li><b>Non-respect</b> des <B>doses et de la durée</b> du traitement</li>
+                    <li>Utilisation massive en médecine vétérinaire</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- QUIZ COMPLET AVEC 30 QUESTIONS QCM -->
+        <section class="quiz-container">
+            <div class="icon-title">
+                <i class="fas fa-question-circle"></i>
+                <h2>Quiz de Bactériologie - Questions à Choix Multiples</h2>
+            </div>
+            
+            <p>Testez vos connaissances avec ce quiz interactif. Sélectionnez la bonne réponse pour chaque question.</p>
+            
+            <!-- Questions 1-20 existantes -->
+            <div class="question">
+                <h3>Question 1: Qu'est-ce qu'un microorganisme?</h3>
+                <div class="options">
+                    <div class="option" data-correct="true">Tout organisme microscopique</div>
+                    <div class="option">Uniquement les bactéries pathogènes</div>
+                    <div class="option">Les virus uniquement</div>
+                    <div class="option">Les organismes visibles à l'œil nu</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 2: Comment les bactéries se multiplient-elles?</h3>
+                <div class="options">
+                    <div class="option">Par méiose</div>
+                    <div class="option" data-correct="true">Par fission binaire</div>
+                    <div class="option">Par bourgeonnement</div>
+                    <div class="option">Par sporulation</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 3: Quelle est la température optimale pour les bactéries mésophiles?</h3>
+                <div class="options">
+                    <div class="option">10-20°C</div>
+                    <div class="option" data-correct="true">20-40°C</div>
+                    <div class="option">37°C</div>
+                    <div class="option">45-70°C</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 4: Les bactéries anaérobies strictes se développent:</h3>
+                <div class="options">
+                    <div class="option">Uniquement en présence d'oxygène</div>
+                    <div class="option">Avec ou sans oxygène</div>
+                    <div class="option">Avec de petites quantités d'oxygène</div>
+                    <div class="option" data-correct="true">En absence d'oxygène</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 5: Quelle est la différence entre bactéries commensales et pathogènes opportunistes?</h3>
+                <div class="options">
+                    <div class="option">Les commensales sont toujours pathogènes</div>
+                    <div class="option">Les opportunistes ne font jamais partie de la flore normale</div>
+                    <div class="option" data-correct="true">Les opportunistes deviennent pathogènes dans certaines conditions</div>
+                    <div class="option">Il n'y a pas de différence</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 6: Qu'est-ce qu'un antibiotique à large spectre?</h3>
+                <div class="options">
+                    <div class="option">Un antibiotique qui agit sur une seule espèce bactérienne</div>
+                    <div class="option" data-correct="true">Un antibiotique qui agit sur de nombreuses espèces bactériennes</div>
+                    <div class="option">Un antibiotique qui agit sur les virus</div>
+                    <div class="option">Un antibiotique qui agit sur les champignons</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 7: Comment se transmet la résistance acquise aux antibiotiques?</h3>
+                <div class="options">
+                    <div class="option">Par les gènes chromosomiques</div>
+                    <div class="option" data-correct="true">Par les plasmides</div>
+                    <div class="option">Par mutation spontanée uniquement</div>
+                    <div class="option">Par contact direct entre bactéries</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 8: Qu'est-ce que la CMI?</h3>
+                <div class="options">
+                    <div class="option">Concentration Maximale Inhibitrice</div>
+                    <div class="option" data-correct="true">Concentration Minimale Inhibitrice</div>
+                    <div class="option">Concentration Minimale d'Inoculation</div>
+                    <div class="option">Concentration Maximale d'Incubation</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 9: Quelles bactéries sont considérées comme psychrophiles?</h3>
+                <div class="options">
+                    <div class="option">Bactéries se développant à 37°C</div>
+                    <div class="option">Bactéries se développant entre 45-70°C</div>
+                    <div class="option" data-correct="true">Bactéries se développant à moins de 20°C</div>
+                    <div class="option">Bactéries se développant sans oxygène</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 10: Qu'est-ce qu'une bactérie multirésistante (BMR)?</h3>
+                <div class="options">
+                    <div class="option">Une bactérie résistante à un seul antibiotique</div>
+                    <div class="option">Une bactérie plus virulente que les autres</div>
+                    <div class="option" data-correct="true">Une bactérie résistante à plusieurs antibiotiques</div>
+                    <div class="option">Une bactérie qui ne provoque pas d'infection</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 11: Qu'est-ce qu'un antibiogramme?</h3>
+                <div class="options">
+                    <div class="option">Un test pour mesurer la quantité d'antibiotique dans le sang</div>
+                    <div class="option" data-correct="true">Une technique pour étudier la sensibilité d'une bactérie aux antibiotiques</div>
+                    <div class="option">Un médicament qui renforce l'action des antibiotiques</div>
+                    <div class="option">Un test pour détecter les allergies aux antibiotiques</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 12: Quel est le principal élément constitutif des bactéries?</h3>
+                <div class="options">
+                    <div class="option">L'azote</div>
+                    <div class="option">L'oxygène</div>
+                    <div class="option" data-correct="true">Le carbone</div>
+                    <div class="option">L'hydrogène</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 13: Quelles bactéries peuvent se développer dans des milieux acides?</h3>
+                <div class="options">
+                    <div class="option">Neutrophiles</div>
+                    <div class="option" data-correct="true">Acidophiles</div>
+                    <div class="option">Alcalophiles</div>
+                    <div class="option">Mésophiles</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 14: Quel type de bactérie est E. coli dans la flore intestinale?</h3>
+                <div class="options">
+                    <div class="option">Saprophyte</div>
+                    <div class="option" data-correct="true">Commensale</div>
+                    <div class="option">Pathogène strict</div>
+                    <div class="option">Pathogène opportuniste</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 15: Quelle est la principale cause de l'émergence des résistances aux antibiotiques?</h3>
+                <div class="options">
+                    <div class="option" data-correct="true">Surconsommation d'antibiotiques</div>
+                    <div class="option">Utilisation d'antibiotiques à spectre étroit</div>
+                    <div class="option">Respect des doses et de la durée du traitement</div>
+                    <div class="option">Utilisation uniquement en médecine humaine</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 16: Quelle bactérie est responsable de l'orgelet?</h3>
+                <div class="options">
+                    <div class="option" data-correct="true">Staphylocoques</div>
+                    <div class="option">Streptocoques</div>
+                    <div class="option">Pseudomonas</div>
+                    <div class="option">E. coli</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 17: Quel est le mode de transmission de la kératite infectieuse?</h3>
+                <div class="options">
+                    <div class="option">Par voie aérienne</div>
+                    <div class="option">Par ingestion d'eau contaminée</div>
+                    <div class="option" data-correct="true">Port de lentilles de contact avec manque d'hygiène</div>
+                    <div class="option">Par contact avec des animaux</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 18: Quelle est la phase de croissance où les bactéries s'adaptent au milieu?</h3>
+                <div class="options">
+                    <div class="option" data-correct="true">Phase de latence</div>
+                    <div class="option">Phase de croissance exponentielle</div>
+                    <div class="option">Phase stationnaire</div>
+                    <div class="option">Phase de déclin</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 19: Qu'est-ce que l'identification enzymatique?</h3>
+                <div class="options">
+                    <div class="option">Identification des bactéries par leur couleur</div>
+                    <div class="option">Identification des bactéries par leur forme</div>
+                    <div class="option" data-correct="true">Identification des bactéries selon les enzymes qu'elles produisent</div>
+                    <div class="option">Identification des bactéries par leur taille</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 20: À quoi servent les milieux de culture?</h3>
+                <div class="options">
+                    <div class="option">Uniquement à observer la couleur des bactéries</div>
+                    <div class="option">Uniquement à compter les bactéries</div>
+                    <div class="option" data-correct="true">À l'identification et l'isolement des bactéries</div>
+                    <div class="option">À détruire les bactéries pathogènes</div>
+                </div>
+            </div>
+
+            <!-- NOUVELLES QUESTIONS 21-30 -->
+            <div class="question">
+                <h3>Question 21: Quelle bactérie est responsable de la conjonctivite bactérienne?</h3>
+                <div class="options">
+                    <div class="option">Pseudomonas uniquement</div>
+                    <div class="option" data-correct="true">Streptocoques et Staphylocoques</div>
+                    <div class="option">E. coli uniquement</div>
+                    <div class="option">Clostridium uniquement</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 22: Quel est le symptôme caractéristique de la kératite infectieuse?</h3>
+                <div class="options">
+                    <div class="option">Fièvre élevée</div>
+                    <div class="option">Éternuements</div>
+                    <div class="option" data-correct="true">Photophobie (sensibilité à la lumière)</div>
+                    <div class="option">Toux persistante</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 23: Quelle est la durée typique de la phase de latence?</h3>
+                <div class="options">
+                    <div class="option">Quelques minutes</div>
+                    <div class="option" data-correct="true">Quelques heures à plusieurs jours</div>
+                    <div class="option">Plusieurs semaines</div>
+                    <div class="option">Quelques secondes</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 24: Qu'est-ce qu'un micro-aérophile?</h3>
+                <div class="options">
+                    <div class="option">Une bactérie qui ne nécessite pas d'oxygène</div>
+                    <div class="option">Une bactérie qui nécessite beaucoup d'oxygène</div>
+                    <div class="option" data-correct="true">Une bactérie qui nécessite de petites quantités d'oxygène</div>
+                    <div class="option">Une bactérie qui produit de l'oxygène</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 25: Quel élément minéral entre dans la composition des acides nucléiques?</h3>
+                <div class="options">
+                    <div class="option">Sodium</div>
+                    <div class="option" data-correct="true">Phosphore</div>
+                    <div class="option">Calcium</div>
+                    <div class="option">Fer</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 26: Quelle est la caractéristique des bactéries thermophiles?</h3>
+                <div class="options">
+                    <div class="option">Elles se développent à des températures inférieures à 0°C</div>
+                    <div class="option">Elles se développent uniquement à 37°C</div>
+                    <div class="option" data-correct="true">Elles se développent à des températures élevées (45-70°C)</div>
+                    <div class="option">Elles ne peuvent pas survivre à température ambiante</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 27: Quel type de résistance aux antibiotiques est transmis par les plasmides?</h3>
+                <div class="options">
+                    <div class="option">Résistance naturelle</div>
+                    <div class="option" data-correct="true">Résistance acquise</div>
+                    <div class="option">Résistance chromosomique</div>
+                    <div class="option">Résistance permanente</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 28: Quel est le principal avantage d'utiliser un antibiotique à spectre étroit?</h3>
+                <div class="options">
+                    <div class="option">Il est moins cher</div>
+                    <div class="option">Il agit plus rapidement</div>
+                    <div class="option" data-correct="true">Il réduit le risque de résistance bactérienne</div>
+                    <div class="option">Il a moins d'effets secondaires</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 29: Quelle phase de la croissance bactérienne est caractérisée par l'épuisement des nutriments?</h3>
+                <div class="options">
+                    <div class="option">Phase de latence</div>
+                    <div class="option">Phase de croissance</div>
+                    <div class="option" data-correct="true">Phase stationnaire</div>
+                    <div class="option">Phase de déclin</div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <h3>Question 30: Quel est le rôle principal de l'antibiogramme?</h3>
+                <div class="options">
+                    <div class="option">Mesurer la taille des bactéries</div>
+                    <div class="option">Identifier la couleur des bactéries</div>
+                    <div class="option" data-correct="true">Déterminer la sensibilité aux antibiotiques</div>
+                    <div class="option">Compter le nombre de bactéries</div>
+                </div>
+            </div>
+            
+            <button id="submit-quiz">Soumettre le quiz</button>
+            
+            <div class="result" id="quiz-result"></div>
+        </section>
+        
+        <!-- TEST D'ÉCRITURE COMPLET -->
+        <section class="writing-test">
+            <div class="icon-title">
+                <i class="fas fa-edit"></i>
+                <h2>Test d'Écriture - Réponses Rédactionnelles</h2>
+            </div>
+            
+            <p>Répondez aux questions suivantes en écrivant vos réponses dans les champs prévus. Cliquez sur "Corriger le test" pour obtenir votre score.</p>
+            
+            <div class="writing-question">
+                <h3>Question 1: Expliquez brièvement la différence entre une bactérie commensale et une bactérie pathogène opportuniste.</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="commensale,flore résidente,pathogène opportuniste,conditions,immunodépression"></textarea>
+                <div class="keyword-feedback" id="feedback-1"></div>
+                <div class="answer-key" id="answer-1">
+                    <p><strong>Réponse attendue:</strong> Les bactéries commensales font partie de la flore résidente normale et ne causent généralement pas de maladie. Les bactéries pathogènes opportunistes sont des commensales qui deviennent pathogènes dans certaines conditions comme une immunodépression.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 2: Décrivez les quatre phases de la courbe de croissance bactérienne.</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="latence,adaptation,croissance,division,stationnaire,déchets,déclin,mort"></textarea>
+                <div class="keyword-feedback" id="feedback-2"></div>
+                <div class="answer-key" id="answer-2">
+                    <p><strong>Réponse attendue:</strong> 1) Phase de latence: adaptation au milieu. 2) Phase de croissance: division active et constante. 3) Phase stationnaire: arrêt de croissance dû aux déchets et épuisement des nutriments. 4) Phase de déclin: mort cellulaire par lyse.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 3: Quelles sont les principales causes de l'émergence des résistances aux antibiotiques?</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="surconsommation,automédication,large spectre,non-respect,doses,durée,vétérinaire"></textarea>
+                <div class="keyword-feedback" id="feedback-3"></div>
+                <div class="answer-key" id="answer-3">
+                    <p><strong>Réponse attendue:</strong> Surconsommation d'antibiotiques, prescription excessive d'antibiotiques à large spectre, non-respect des doses et durée du traitement, utilisation massive en médecine vétérinaire.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 4: Expliquez la différence entre résistance naturelle et résistance acquise aux antibiotiques.</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="naturelle,chromosomique,stable,acquise,plasmides,variable,transitoire"></textarea>
+                <div class="keyword-feedback" id="feedback-4"></div>
+                <div class="answer-key" id="answer-4">
+                    <p><strong>Réponse attendue:</strong> La résistance naturelle est présente chez toutes les souches d'une espèce, portée par les gènes chromosomiques, stable et durable. La résistance acquise apparaît chez des souches normalement sensibles, transmise par plasmides, variable et transitoire.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 5: Quels sont les principaux besoins nutritifs des bactéries et pourquoi sont-ils importants?</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="eau,carbone,azote,phosphore,soufre,minéraux,protéines,acides nucléiques"></textarea>
+                <div class="keyword-feedback" id="feedback-5"></div>
+                <div class="answer-key" id="answer-5">
+                    <p><strong>Réponse attendue:</strong> Les bactéries ont besoin d'eau comme principal composant cellulaire, de carbone comme élément constitutif principal, d'azote pour les protéines, et d'éléments minéraux comme le phosphore et le soufre pour les acides nucléiques et protéines.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 6: Décrivez les différents types de bactéries selon leurs besoins en oxygène.</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="aérobies strictes,anaérobies strictes,micro-aérophiles,aéro-anaérobies facultatives,oxygène"></textarea>
+                <div class="keyword-feedback" id="feedback-6"></div>
+                <div class="answer-key" id="answer-6">
+                    <p><strong>Réponse attendue:</strong> 1) Aérobies strictes: ne se développent qu'en présence d'oxygène. 2) Anaérobies strictes: se développent en absence d'oxygène. 3) Micro-aérophiles: se développent avec de petites quantités d'oxygène. 4) Aéro-anaérobies facultatives: se développent avec ou sans oxygène.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 7: Qu'est-ce qu'un antibiogramme et à quoi sert-il?</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="antibiogramme,sensibilité,antibiotiques,CMI,concentration minimale inhibitrice"></textarea>
+                <div class="keyword-feedback" id="feedback-7"></div>
+                <div class="answer-key" id="answer-7">
+                    <p><strong>Réponse attendue:</strong> Un antibiogramme est une technique de laboratoire permettant d'étudier la sensibilité d'une souche bactérienne vis-à-vis de plusieurs antibiotiques et de déterminer la concentration minimale inhibitrice (CMI) d'un antibiotique pour une souche bactérienne.</p>
+                </div>
+            </div>
+            
+            <div class="writing-question">
+                <h3>Question 8: Décrivez brièvement trois infections oculaires bactériennes et leurs caractéristiques.</h3>
+                <textarea class="writing-input" rows="4" placeholder="Votre réponse..." data-keywords="orgelet,conjonctivite,kératite,staphylocoques,streptocoques,pseudomonas"></textarea>
+                <div class="keyword-feedback" id="feedback-8"></div>
+                <div class="answer-key" id="answer-8">
+                    <p><strong>Réponse attendue:</strong> 1) Orgelet: infection à Staphylocoques, transmission par contact, symptômes: gonflement et rougeur de la paupière. 2) Conjonctivite bactérienne: causée par Streptocoques et Staphylocoques, transmission par objets contaminés, symptômes: démangeaisons et écoulement. 3) Kératite infectieuse: causée par Staphylocoques et Pseudomonas, liée au port de lentilles, symptômes: douleur et baisse de vision.</p>
+                </div>
+            </div>
+            
+            <button id="submit-writing">Corriger le test</button>
+            <button id="show-answers" style="background: var(--purple); margin-left: 10px;">Voir les réponses</button>
+            
+            <div class="score-display" id="writing-score"></div>
+        </section>
+        
+        <div class="nav-buttons">
+            <button onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Retour en haut</button>
+            <button onclick="location.reload()"><i class="fas fa-redo"></i> Recommencer</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Résumé du cours de bactériologie - Orthoptie 2025-2026</p>
+            <p>Basé sur le cours du Dr Salma MEJRI, Travail réalisé par Rim HADDAD</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Gestion des onglets
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Retirer la classe active de tous les onglets et contenus
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Ajouter la classe active à l'onglet cliqué
+                tab.classList.add('active');
+                
+                // Afficher le contenu correspondant
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Gestion du quiz
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Retirer la sélection de toutes les options de la même question
+                const question = option.closest('.question');
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Sélectionner l'option cliquée
+                option.classList.add('selected');
+            });
+        });
+        
+        document.getElementById('submit-quiz').addEventListener('click', () => {
+            let score = 0;
+            const totalQuestions = document.querySelectorAll('.question').length;
+            
+            document.querySelectorAll('.question').forEach(question => {
+                const selectedOption = question.querySelector('.option.selected');
+                
+                if (selectedOption && selectedOption.hasAttribute('data-correct')) {
+                    score++;
+                    selectedOption.classList.add('correct');
+                } else if (selectedOption) {
+                    selectedOption.classList.add('incorrect');
+                    // Afficher la bonne réponse
+                    const correctOption = question.querySelector('.option[data-correct="true"]');
+                    correctOption.classList.add('correct');
+                } else {
+                    // Aucune option sélectionnée, afficher la bonne réponse
+                    const correctOption = question.querySelector('.option[data-correct="true"]');
+                    correctOption.classList.add('correct');
+                }
+            });
+            
+            const percentage = (score / totalQuestions) * 100;
+            const resultElement = document.getElementById('quiz-result');
+            
+            resultElement.textContent = `Votre score: ${score}/${totalQuestions} (${percentage.toFixed(1)}%)`;
+            
+            if (percentage >= 70) {
+                resultElement.className = 'result success';
+                resultElement.innerHTML += '<p>Félicitations! Vous avez une bonne compréhension de la bactériologie.</p>';
+            } else {
+                resultElement.className = 'result fail';
+                resultElement.innerHTML += '<p>Revoyez les concepts et réessayez!</p>';
+            }
+            
+            // Faire défiler jusqu'au résultat
+            resultElement.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Gestion du test d'écriture avec vérification des mots-clés
+        document.getElementById('submit-writing').addEventListener('click', () => {
+            const answers = document.querySelectorAll('.writing-input');
+            let totalScore = 0;
+            const maxPointsPerQuestion = 2;
+            const totalQuestions = answers.length;
+            
+            answers.forEach((answer, index) => {
+                const keywords = answer.getAttribute('data-keywords').split(',');
+                const userAnswer = answer.value.toLowerCase();
+                let questionScore = 0;
+                let foundKeywords = [];
+                
+                // Vérifier chaque mot-clé
+                keywords.forEach(keyword => {
+                    if (userAnswer.includes(keyword.toLowerCase())) {
+                        questionScore += maxPointsPerQuestion / keywords.length;
+                        foundKeywords.push(keyword);
+                    }
+                });
+                
+                // Limiter le score maximum par question
+                questionScore = Math.min(questionScore, maxPointsPerQuestion);
+                totalScore += questionScore;
+                
+                // Afficher le feedback pour cette question
+                const feedbackElement = document.getElementById(`feedback-${index+1}`);
+                if (foundKeywords.length === keywords.length) {
+                    feedbackElement.innerHTML = `<i class="fas fa-check"></i> Excellent! Tous les mots-clés ont été trouvés: ${foundKeywords.join(', ')}`;
+                    feedbackElement.className = 'keyword-feedback correct';
+                } else if (foundKeywords.length > 0) {
+                    feedbackElement.innerHTML = `<i class="fas fa-check"></i> Mots-clés trouvés: ${foundKeywords.join(', ')}`;
+                    feedbackElement.className = 'keyword-feedback correct';
+                    
+                    // Afficher les mots-clés manquants
+                    const missingKeywords = keywords.filter(keyword => !foundKeywords.includes(keyword));
+                    feedbackElement.innerHTML += `<br><i class="fas fa-times"></i> Mots-clés manquants: ${missingKeywords.join(', ')}`;
+                    
+                    // Afficher la réponse correcte
+                    const answerKey = document.getElementById(`answer-${index+1}`);
+                    answerKey.style.display = 'block';
+                } else {
+                    feedbackElement.innerHTML = `<i class="fas fa-times"></i> Aucun mot-clé trouvé. Mots-clés attendus: ${keywords.join(', ')}`;
+                    feedbackElement.className = 'keyword-feedback incorrect';
+                    
+                    // Afficher la réponse correcte
+                    const answerKey = document.getElementById(`answer-${index+1}`);
+                    answerKey.style.display = 'block';
+                }
+                feedbackElement.style.display = 'block';
+            });
+            
+            const maxTotalScore = totalQuestions * maxPointsPerQuestion;
+            const percentage = (totalScore / maxTotalScore) * 100;
+            const scoreElement = document.getElementById('writing-score');
+            
+            scoreElement.textContent = `Score du test d'écriture: ${totalScore.toFixed(1)}/${maxTotalScore} (${percentage.toFixed(1)}%)`;
+            scoreElement.style.display = 'block';
+            
+            if (percentage >= 70) {
+                scoreElement.style.background = 'linear-gradient(135deg, var(--success), var(--secondary))';
+            } else {
+                scoreElement.style.background = 'linear-gradient(135deg, var(--accent), var(--warning))';
+            }
+            
+            scoreElement.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Afficher les réponses du test d'écriture
+        document.getElementById('show-answers').addEventListener('click', () => {
+            const answerKeys = document.querySelectorAll('.answer-key');
+            answerKeys.forEach(key => {
+                key.style.display = 'block';
+            });
+        });
+        
+        // Fonction pour retourner en haut de la page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Gestion du modal pour les images
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.getElementsByClassName("close")[0];
+        
+        // Ajouter cette ligne dans la section "Gestion du modal pour les images"
+        document.querySelectorAll('.concept-image, .culture-image, .infection-image, .curve-image').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "block";
+                modalImg.src = this.getAttribute('data-src');
+            });
+        });
+        
+        // Fermer le modal
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+        
+        // Fermer le modal en cliquant en dehors de l'image
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
