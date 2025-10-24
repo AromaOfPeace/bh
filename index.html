@@ -275,6 +275,22 @@
             color: white;
         }
         
+        /* Styles pour les questions à choix multiples */
+        .question[data-multiple="true"] .option.selected {
+            background: var(--purple);
+            color: white;
+        }
+        
+        .question[data-multiple="true"] .option.correct {
+            background: var(--success);
+            color: white;
+        }
+        
+        .question[data-multiple="true"] .option.incorrect {
+            background: var(--accent);
+            color: white;
+        }
+        
         button {
             background: var(--secondary);
             color: white;
@@ -849,7 +865,7 @@
                         <i class="fas fa-user-shield"></i>
                     </div>
                     <h4>Pathogènes opportunistes</h4>
-                    <p>Deviennent pathogènes dans certaines conditions (baisse immunitaire, <b>E. coli</b> responsables d’<b>infections urinaires</b>, <b>Staphylococcus epidermis</b> responsable d’<b>abcès</b>)</p>
+                    <p>Deviennent pathogènes dans certaines conditions (baisse immunitaire, <b>E. coli</b> responsables d'<b>infections urinaires</b>, <b>Staphylococcus epidermis</b> responsable d'<b>abcès</b>)</p>
                 </div>
                 
                 <div class="card">
@@ -1001,7 +1017,7 @@
             </div>
         </section>
         
-        <!-- QUIZ COMPLET AVEC 30 QUESTIONS QCM -->
+        <!-- QUIZ COMPLET AVEC 40 QUESTIONS QCM -->
         <section class="quiz-container">
             <div class="icon-title">
                 <i class="fas fa-question-circle"></i>
@@ -1010,7 +1026,7 @@
             
             <p>Testez vos connaissances avec ce quiz interactif. Sélectionnez la bonne réponse pour chaque question.</p>
             
-            <!-- Questions 1-20 existantes -->
+            <!-- Questions 1-30 existantes -->
             <div class="question">
                 <h3>Question 1: Qu'est-ce qu'un microorganisme?</h3>
                 <div class="options">
@@ -1311,7 +1327,110 @@
                     <div class="option">Compter le nombre de bactéries</div>
                 </div>
             </div>
-            
+
+            <!-- NOUVELLES QUESTIONS 31-40 AVEC SÉLECTION MULTIPLE -->
+            <div class="question">
+                <h3>Question 31: Quel élément est essentiel pour la composition des protéines bactériennes?</h3>
+                <div class="options">
+                    <div class="option">Carbone</div>
+                    <div class="option" data-correct="true">Azote</div>
+                    <div class="option">Phosphore</div>
+                    <div class="option">Soufre</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 32: Qui fait partie des Coques?</h3>
+                <div class="options">
+                    <div class="option">Vibrio cholerae</div>
+                    <div class="option">Bacillus anthracis</div>
+                    <div class="option" data-correct="true">Méningocoques</div>
+                    <div class="option">Moraxella</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 33: Qui fait partie des Bacilles?</h3>
+                <div class="options">
+                    <div class="option">Vibrio cholerae</div>
+                    <div class="option" data-correct="true">Bacillus anthracis</div>
+                    <div class="option">Méningocoques</div>
+                    <div class="option">Staphylocoques</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 34: Qui fait partie des Spirilles?</h3>
+                <div class="options">
+                    <div class="option" data-correct="true">Vibrio cholerae</div>
+                    <div class="option">Bacillus anthracis</div>
+                    <div class="option">Méningocoques</div>
+                    <div class="option">Staphylocoques</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 35: Quel est le principal composant cellulaire des bactéries?</h3>
+                <div class="options">
+                    <div class="option">Azote</div>
+                    <div class="option" data-correct="true">Eau</div>
+                    <div class="option">Phosphore</div>
+                    <div class="option">Carbone</div>
+                </div>
+            </div>
+                
+            <div class="question">
+                <h3>Question 36: Quel est le rôle du soufre dans les bactéries?</h3>
+                <div class="options">
+                    <div class="option">Constituant des acides nucléiques</div>
+                    <div class="option">Constituant de l'eau</div>
+                    <div class="option" data-correct="true">Constituant des protéines</div>
+                    <div class="option">Constituant des lipides</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 37: Bacillus préfère quelle température?</h3>
+                <div class="options">
+                    <div class="option">37°C</div>
+                    <div class="option" data-correct="true">Entre 45 et 70°C</div>
+                    <div class="option">15°C</div>
+                    <div class="option">0°C</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Question 38: Quelle est la différence entre une bactérie pathogène stricte et opportuniste?</h3>
+                <div class="options">
+                    <div class="option" data-correct="true">Les pathogènes strictes provoquent des maladies chez l'Homme sain, les opportunistes causent des infections en cas d'immunodépression</div>
+                    <div class="option">Les opportunistes sont toujours plus virulentes que les pathogènes strictes</div>
+                    <div class="option">Il n'y a pas de différence</div>
+                    <div class="option">Les pathogènes strictes font partie de la flore normale</div>
+                </div>
+            </div>
+
+            <div class="question" data-multiple="true">
+                <h3>Question 39: Quelles sont les bactéries pathogènes strictes? (Sélectionnez plusieurs réponses)</h3>
+                <div class="options">
+                    <div class="option">E. coli</div>
+                    <div class="option">Staphylocoques</div>
+                    <div class="option" data-correct="true">Mycobacterium tuberculosis</div>
+                    <div class="option" data-correct="true">Salmonella typhi</div>
+                    <div class="option">Clostridium difficile</div>
+                </div>
+            </div>
+
+            <div class="question" data-multiple="true">
+                <h3>Question 40: Quelles maladies invoquent-elles ? (Sélectionnez plusieurs réponses)</h3>
+                <div class="options">
+                    <div class="option">Infections urinaires</div>
+                    <div class="option">Pneumonie</div>
+                    <div class="option" data-correct="true">Tuberculose</div>
+                    <div class="option" data-correct="true">Typhoïde</div>
+                    <div class="option">Colite</div>
+                </div>
+            </div>
+
             <button id="submit-quiz">Soumettre le quiz</button>
             
             <div class="result" id="quiz-result"></div>
@@ -1434,46 +1553,78 @@
             });
         });
         
-        // Gestion du quiz
+        // Gestion des sélections dans les questions QCM
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', () => {
-                // Retirer la sélection de toutes les options de la même question
                 const question = option.closest('.question');
-                question.querySelectorAll('.option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
+                const isMultiple = question.hasAttribute('data-multiple');
                 
-                // Sélectionner l'option cliquée
-                option.classList.add('selected');
+                if (isMultiple) {
+                    // Pour les questions à choix multiples: toggle la sélection
+                    option.classList.toggle('selected');
+                } else {
+                    // Pour les questions à choix unique: sélectionner une seule option
+                    question.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    option.classList.add('selected');
+                }
             });
         });
         
+        // Gestion de la soumission du quiz
         document.getElementById('submit-quiz').addEventListener('click', () => {
             let score = 0;
-            const totalQuestions = document.querySelectorAll('.question').length;
+            let totalPossiblePoints = 0;
             
             document.querySelectorAll('.question').forEach(question => {
-                const selectedOption = question.querySelector('.option.selected');
+                const isMultiple = question.hasAttribute('data-multiple');
+                const selectedOptions = question.querySelectorAll('.option.selected');
+                const correctOptions = question.querySelectorAll('.option[data-correct="true"]');
                 
-                if (selectedOption && selectedOption.hasAttribute('data-correct')) {
-                    score++;
-                    selectedOption.classList.add('correct');
-                } else if (selectedOption) {
-                    selectedOption.classList.add('incorrect');
-                    // Afficher la bonne réponse
-                    const correctOption = question.querySelector('.option[data-correct="true"]');
-                    correctOption.classList.add('correct');
+                if (isMultiple) {
+                    // Pour les questions multiples: chaque bonne réponse = 1 point
+                    totalPossiblePoints += correctOptions.length;
+                    
+                    selectedOptions.forEach(selectedOption => {
+                        if (selectedOption.hasAttribute('data-correct')) {
+                            score++;
+                            selectedOption.classList.add('correct');
+                        } else {
+                            selectedOption.classList.add('incorrect');
+                        }
+                    });
+                    
+                    // Afficher les bonnes réponses non sélectionnées
+                    correctOptions.forEach(correctOption => {
+                        if (!correctOption.classList.contains('selected')) {
+                            correctOption.classList.add('correct');
+                        }
+                    });
+                    
                 } else {
-                    // Aucune option sélectionnée, afficher la bonne réponse
-                    const correctOption = question.querySelector('.option[data-correct="true"]');
-                    correctOption.classList.add('correct');
+                    // Logique originale pour les questions à choix unique
+                    totalPossiblePoints++;
+                    const selectedOption = question.querySelector('.option.selected');
+                    
+                    if (selectedOption && selectedOption.hasAttribute('data-correct')) {
+                        score++;
+                        selectedOption.classList.add('correct');
+                    } else if (selectedOption) {
+                        selectedOption.classList.add('incorrect');
+                        const correctOption = question.querySelector('.option[data-correct="true"]');
+                        correctOption.classList.add('correct');
+                    } else {
+                        const correctOption = question.querySelector('.option[data-correct="true"]');
+                        correctOption.classList.add('correct');
+                    }
                 }
             });
             
-            const percentage = (score / totalQuestions) * 100;
+            const percentage = (score / totalPossiblePoints) * 100;
             const resultElement = document.getElementById('quiz-result');
             
-            resultElement.textContent = `Votre score: ${score}/${totalQuestions} (${percentage.toFixed(1)}%)`;
+            resultElement.textContent = `Votre score: ${score}/${totalPossiblePoints} (${percentage.toFixed(1)}%)`;
             
             if (percentage >= 70) {
                 resultElement.className = 'result success';
@@ -1595,4 +1746,3 @@
     </script>
 </body>
 </html>
-
